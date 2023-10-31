@@ -10,15 +10,7 @@ function Node(value) {
 function LinkedList() {
     let head = null;
 
-    function getHead() {
-        return head;
-    }
-
-    function setHead(value) {
-        head = Node(value);
-    }
-
-    function append(value) {
+    const append = (value) => {
         let currentNode = head;
         let previousNode;
 
@@ -30,18 +22,14 @@ function LinkedList() {
         if (previousNode) {
             previousNode.next = Node(value);
         } else {
-            setHead(value);
+            head = Node(value);
         }
     }
 
     return {
-        getHead,
+        get head() {
+            return head
+        },
         append
     }
 }
-
-const list = LinkedList();
-list.append(2);
-list.append(3);
-list.append(4);
-console.log(list.getHead());
