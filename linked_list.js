@@ -1,4 +1,13 @@
 function Node() {
-    const value = null;
-    const next = null;
+    let value = null;
+    let next = null;
+
+    return {
+        value,
+        next
+    }
+}
+
+function LinkedList(head) {
+    let head = null;
 }
