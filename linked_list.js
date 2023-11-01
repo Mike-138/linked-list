@@ -89,3 +89,8 @@ function LinkedList() {
         atIndex
     }
 }
+
+module.exports = {
+    Node,
+    LinkedList
+}
