@@ -32,11 +32,24 @@ function LinkedList() {
         head = newHead;
     }
 
+    const size = () => {
+        let size = 0;
+        let currentNode = head;
+
+        while (currentNode) {
+            size += 1;
+            currentNode = currentNode.next;
+        }
+
+        return size;
+    }
+
     return {
         get head() {
             return head
         },
         append,
-        prepend
+        prepend,
+        size
     }
 }
