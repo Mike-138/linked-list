@@ -9,6 +9,7 @@ function Node(value) {
 
 function LinkedList() {
     let head = null;
+    let tail;
 
     const append = (value) => {
         let currentNode = head;
@@ -47,6 +48,15 @@ function LinkedList() {
     return {
         get head() {
             return head
+        },
+        get tail() {
+            let currentNode = head;
+            let previousNode = head;
+            while (currentNode) {
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            return previousNode;
         },
         append,
         prepend,
