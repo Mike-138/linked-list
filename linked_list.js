@@ -26,10 +26,17 @@ function LinkedList() {
         }
     }
 
+    const prepend = (value) => {
+        newHead = Node(value);
+        newHead.next = head;
+        head = newHead;
+    }
+
     return {
         get head() {
             return head
         },
-        append
+        append,
+        prepend
     }
 }
