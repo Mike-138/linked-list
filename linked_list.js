@@ -10,7 +10,18 @@ function Node(value) {
 function LinkedList() {
     let head = null;
     let tail = null;
-    let size = 0;
+
+    const _getSize = () => {
+        let currentNode = head;
+        let size = 0;
+    
+        while (currentNode) {
+            size += 1;
+            currentNode = currentNode.next;
+        }
+
+        return size;
+    }
 
     const append = (value) => {
         let currentNode = head;
@@ -34,6 +45,29 @@ function LinkedList() {
         head = newHead;
     }
 
+    const atIndex = (index) => {
+        let currentNode = head;
+
+        if (index < 0) {
+            let size = _getSize();
+            index = size + index;
+        }
+
+        while (currentNode) {
+            if (index === 0) {
+                break;
+            }
+            currentNode = currentNode.next;
+            index -= 1;
+        }
+
+        if (index > 0) {
+            return "IndexError";
+        }
+
+        return currentNode;
+    }
+
     return {
         get head() {
             return head
@@ -48,22 +82,10 @@ function LinkedList() {
             return previousNode;
         },
         get size() {
-            let currentNode = head;
-    
-            while (currentNode) {
-                size += 1;
-                currentNode = currentNode.next;
-            }
-    
-            return size;
+            return _getSize()
         },
         append,
-        prepend
+        prepend,
+        atIndex
     }
 }
-
-const list = LinkedList();
-console.log(list.size);
-list.append(1);
-list.append(2);
-console.log(list.size);
