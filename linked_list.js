@@ -103,6 +103,19 @@ function LinkedList() {
         return false;
     }
 
+    const find = (value) => {
+        let currentNode = head;
+        let index = 0;
+        while (currentNode) {
+            if (currentNode.value === value) {
+                return index;
+            }
+            currentNode = currentNode.next;
+            index += 1;
+        }
+        return null;
+    }
+
     return {
         get head() {
             return head
@@ -117,7 +130,8 @@ function LinkedList() {
         prepend,
         atIndex,
         pop,
-        contains
+        contains,
+        find
     }
 }
 
