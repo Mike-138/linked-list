@@ -11,6 +11,16 @@ function LinkedList() {
     let head = null;
     let tail = null;
 
+    const _getTail = () => {
+        let currentNode = head;
+        let previousNode = head;
+        while (currentNode) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+        return previousNode;
+    }
+
     const _getSize = () => {
         let currentNode = head;
         let size = 0;
@@ -73,13 +83,7 @@ function LinkedList() {
             return head
         },
         get tail() {
-            let currentNode = head;
-            let previousNode = head;
-            while (currentNode) {
-                previousNode = currentNode;
-                currentNode = currentNode.next;
-            }
-            return previousNode;
+            return _getTail()
         },
         get size() {
             return _getSize()
