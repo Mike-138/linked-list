@@ -116,6 +116,17 @@ function LinkedList() {
         return null;
     }
 
+    const toString = () => {
+        let currentNode = head;
+        let listString = "";
+        while (currentNode) {
+            listString += `( ${currentNode.value} ) -> `
+            currentNode = currentNode.next;
+        }
+        listString += "null";
+        return listString;
+    }
+
     return {
         get head() {
             return head
@@ -131,7 +142,8 @@ function LinkedList() {
         atIndex,
         pop,
         contains,
-        find
+        find,
+        toString
     }
 }
 
