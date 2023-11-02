@@ -92,6 +92,17 @@ function LinkedList() {
         return currentNode;
     }
 
+    const contains = (value) => {
+        let currentNode = head;
+        while (currentNode) {
+            if (currentNode.value === value) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+
     return {
         get head() {
             return head
@@ -105,7 +116,8 @@ function LinkedList() {
         append,
         prepend,
         atIndex,
-        pop
+        pop,
+        contains
     }
 }
 
