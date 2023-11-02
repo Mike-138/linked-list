@@ -78,6 +78,20 @@ function LinkedList() {
         return currentNode;
     }
 
+    const pop = () => {
+        if (!head) {
+            return "IndexError: Cannot pop an empty list";
+        }
+        let currentNode = head;
+        let previousNode = head;
+        while (currentNode.next) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+        }
+        previousNode.next = null;
+        return currentNode;
+    }
+
     return {
         get head() {
             return head
@@ -90,7 +104,8 @@ function LinkedList() {
         },
         append,
         prepend,
-        atIndex
+        atIndex,
+        pop
     }
 }
 
